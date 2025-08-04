@@ -95,13 +95,18 @@
         </div>
         </body>
     </div>
+    <div class="row p-3">
+        <div class="col text-end p-2">
+            <a href="portfolio" class="btn btn-outline-secondary" role="button">Back to portfolio</a>
+        </div>
+    </div>
 </div>
 <!-- Scripts -->
 {% if show_modal %}
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new bootstrap.Modal(document.getElementById('formModal')).show();
-  });
+    document.addEventListener('DOMContentLoaded', function () {
+        new bootstrap.Modal(document.getElementById('formModal')).show();
+    });
 </script>
 {% endif %}
 

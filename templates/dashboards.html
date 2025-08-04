@@ -1,69 +1,91 @@
 {% extends "index.html" %}
 {% block content %}
 <div class="container w-90 p-3">
-<div class="card">
-      <div class="card-header text-center fw-bold">Power BI Project: Flying Hour Program Dashboard</div>
-<div class="'card-body">
-      <div class="section">
-            <div class="card p-0">
-    <img src="{{url_for('static', filename='dashboard.png')}}" alt="Dashboard Screenshot">
-    </div>
-  </div>
+    <div class="card">
+        <div class="card-header text-center fw-bold">Power BI Project: Flying Hour Program Dashboard</div>
+        <div class="'card-body">
+            <div class="section">
+                <div class="card p-0">
+                    <img src="{{url_for('static', filename='dashboard.png')}}" alt="Dashboard Screenshot">
+                </div>
+            </div>
 
-  <div class="container-fluid">
-  <div class="section">
-    <h2 class="text-center border-bottom border-2">Problem Statement</h2>
-    <p>
-      During my time as an aviator in the Air Force, I observed that hundreds of man-hours each year were dedicated to managing the Flying Hour Program. Each flying unit is allotted a certain number of hours annually. If a unit flies too few hours, they risk losing those hours the following year, limiting their training capacity. If they fly too many, they risk misusing resources and overspending.
-    </p>
-    <p>
-      For decades, units have relied on manually inputting thousands of hours of flight data into complicated Excel calculators. These tools are time-consuming and prone to error. Best case, they produce an accurate picture after many hours of input and review. Worst case, they create confusion and lead to issues at the end of the fiscal year.
-    </p>
-    <p>
-      I set out to change that, to give time back to our aviators.
-    </p>
-  </div>
+            <div class="container-fluid">
+                <div class="section">
+                    <h2 class="text-center border-bottom border-2">Problem Statement</h2>
+                    <p>
+                        During my time as an aviator in the Air Force, I observed that hundreds of man-hours each year
+                        were dedicated to managing the Flying Hour Program. Each flying unit is allotted a certain
+                        number of hours annually. If a unit flies too few hours, they risk losing those hours the
+                        following year, limiting their training capacity. If they fly too many, they risk misusing
+                        resources and overspending.
+                    </p>
+                    <p>
+                        For decades, units have relied on manually inputting thousands of hours of flight data into
+                        complicated Excel calculators. These tools are time-consuming and prone to error. Best case,
+                        they produce an accurate picture after many hours of input and review. Worst case, they create
+                        confusion and lead to issues at the end of the fiscal year.
+                    </p>
+                    <p>
+                        I set out to change that, to give time back to our aviators.
+                    </p>
+                </div>
 
-  <div class="section">
-    <h2 class="text-center border-bottom border-2">How I Accomplished This</h2>
-    <p>
-      To access the raw data, I built SQL reports from GTIMS (the Government system used for flight-related information) and connected them to Power BI through a data pipeline. Although the data source isn’t a direct database connection, it allows me to refresh the report based on GTIMS data with the click of a button.
-    </p>
-    <p>
-      To build the report, I focused on the information most needed by squadron, group, and wing leadership. I created numerous measures, charts, and visuals to show both the current pace of flying hours and the projected path to end the fiscal year with exactly zero hours remaining.
-    </p>
-    <p>
-      I also developed a simple Power App that lets users refresh all data with a single click. While I would prefer this process to be fully automated, Air Force tech restrictions prevent that—it requires a constantly running server logged in with valid credentials to retrieve GTIMS data, which isn't feasible under current conditions.
-    </p>
-  </div>
+                <div class="section">
+                    <h2 class="text-center border-bottom border-2">How I Accomplished This</h2>
+                    <p>
+                        To access the raw data, I built SQL reports from GTIMS (the Government system used for
+                        flight-related information) and connected them to Power BI through a data pipeline. Although the
+                        data source isn’t a direct database connection, it allows me to refresh the report based on
+                        GTIMS data with the click of a button.
+                    </p>
+                    <p>
+                        To build the report, I focused on the information most needed by squadron, group, and wing
+                        leadership. I created numerous measures, charts, and visuals to show both the current pace of
+                        flying hours and the projected path to end the fiscal year with exactly zero hours remaining.
+                    </p>
+                    <p>
+                        I also developed a simple Power App that lets users refresh all data with a single click. While
+                        I would prefer this process to be fully automated, Air Force tech restrictions prevent that—it
+                        requires a constantly running server logged in with valid credentials to retrieve GTIMS data,
+                        which isn't feasible under current conditions.
+                    </p>
+                </div>
 
 
 
-  <div class="section p-3">
-            <div class="card-sm p-0">
-                <div class="card-header">Power app button for refresh</div>
-    <img src="{{url_for('static', filename='button.png')}}" alt="Power App Button Screenshot">
-  </div>
-  </div>
+                <div class="section p-3">
+                    <div class="card-sm p-0">
+                        <div class="card-header">Power app button for refresh</div>
+                        <img src="{{url_for('static', filename='button.png')}}" alt="Power App Button Screenshot">
+                    </div>
+                </div>
 
-  <div class="section">
-    <h2 class="text-center border-bottom border-2">Tools Used</h2>
-    <ul>
-      <li>Power BI</li>
-      <li>Power Apps</li>
-      <li>Power Automate</li>
-      <li>Microsoft Teams</li>
-    </ul>
-  </div>
+                <div class="section">
+                    <h2 class="text-center border-bottom border-2">Tools Used</h2>
+                    <ul>
+                        <li>Power BI</li>
+                        <li>Power Apps</li>
+                        <li>Power Automate</li>
+                        <li>Microsoft Teams</li>
+                    </ul>
+                </div>
 
-  <div class="section">
-    <h2 class="text-center border-bottom border-2">Future Hopes</h2>
-    <p>
-      I plan to continue growing this product and eventually build solutions that scale to larger organizations. I believe the time saved through simple, integrated tools within our existing systems could serve as a launchpad for even greater innovations.
-    </p>
-    </div>
-    </div>
+                <div class="section">
+                    <h2 class="text-center border-bottom border-2">Future Hopes</h2>
+                    <p>
+                        I plan to continue growing this product and eventually build solutions that scale to larger
+                        organizations. I believe the time saved through simple, integrated tools within our existing
+                        systems could serve as a launchpad for even greater innovations.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-  </div>
+<div class="row p-3">
+    <div class="col text-end p-2">
+        <a href="portfolio" class="btn btn-outline-secondary" role="button">Back to portfolio</a>
+    </div>
+</div>
 {% endblock %}

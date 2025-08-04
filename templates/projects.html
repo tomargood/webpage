@@ -1,6 +1,45 @@
 {% extends "index.html" %}
 {% block content %}
-    <h2>
-        My Projects
-    </h2>
+
+<div class="container my-5">
+    <div class="row g-4">
+
+        <!-- Project 1 Card -->
+        <div class="col-md-6">
+
+            <div class="card h-100">
+                <a href="dashboards">
+                    <img src="{{url_for('static', filename='dashboard.png')}}" class="card-img-top"
+                        alt="Dashboard Screenshot" />
+                    <a href="dashboards"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Project 1: Dashboard</h5>
+                        <p class="card-text">
+                            An interactive Power BI dashboard visualizing flying hour program data to help leadership
+                            track usage and projections.
+                        </p>
+                    </div>
+            </div>
+            </a>
+        </div>
+
+        <!-- Project 2 Card -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <a href="wxchecker">
+                    <img src="{{url_for('static', filename='huey2.png')}}" class="card-img-top"
+                        alt="Aviation Weather Web App" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Project 2: Aviation Weather Web App</h5>
+                    <p class="card-text">
+                        A small web application displaying current aviation weather conditions to support flight
+                        planning and safety.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
