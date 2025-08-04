@@ -1,18 +1,86 @@
 {% extends "index.html" %}
 {% block content %}
-    <div class="container text-center mt-5 w-50">
-        <div class="card">
-            <h5 class="card-header">Welcome to Weather Checker</h5>
-            <div class="card-body">
-                <div class="row">
-                    <h5 class="card-title mb-3">Please Enter desired Airport:</h5>
-                    <form action="/submit" method="POST">
-                        <input class="form-control" type="text" id="arpt" name="arpt"></input>
-                        <button type="submit" class="btn btn-primary mr-1 ml-1 mt-2 mb-1">Submit</button>
-                    </form>
-                </div>
+<div class="container text-center mt-5 w-50">
+    <div class="card">
+        <h5 class="card-header">Welcome to Weather Checker</h5>
+        <div class="card-body">
+            <div class="row">
+                <h5 class="card-title mb-3">Please Enter desired Airport:</h5>
+                <form action="/submit" method="POST">
+                    <input class="form-control" type="text" id="arpt" name="arpt" placeholder="ex. KSEA"></input>
+                    <button type="submit" class="btn btn-primary mr-1 ml-1 mt-2 mb-1">Submit</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
+<div class="container w-80 p-5">
+    <div class="card">
+        <h1 class="card-header text-center">Aviation Weather Tool (Flask Project)</h1>
+        <div class="card-body p-3"></div>
+        <div class="container p-3">
+            <p>This project was built to accomplish two primary goals:</p>
+            <ol>
+                <li>Learn Python, web scraping and API interations</li>
+                <li>Create a personal tool utalizing basic modern building blocks which I could improve upon over time
+                </li>
+            </ol>
+
+            <h2>Overview</h2>
+            <p>
+                The application and surrounding website is a Flask-based web program featuring several static pages and
+                one dynamic tool:
+                an aviation weather checker. This project serves as a personal portfolio to document my journey in
+                learning technology, with the aviation weather tool being the final project of my latest harvard python
+                course.
+            </p>
+            <p>Throughout development, I gained foundational knowledge in the below technologies</p>
+            <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>git</li>
+                <li>Cloud Computing</li>
+            </ul>
+
+            <h2>Features</h2>
+            <p>
+                The main tool above allows users to input an airport identifier and receive real-time weather data built
+                for pilots. The results are color-coded based on FAA flight conditions:
+            </p>
+            <ul>
+                <li><strong>Green</strong>: VFR (Visual Flight Rules). Safe for visual flying.</li>
+                <li><strong>Red</strong>: IFR (Instrument Flight Rules). Low ceilings or poor visibility.</li>
+                <li><strong>Blue</strong>: Marginal VFR, not quite IFR, but not good enough for VFR either.</li>
+            </ul>
+
+            <h3>Intelligent Ceiling Detection</h3>
+            <p>
+                Not all low clouds constitute a "ceiling." The program intelligently determines when conditions truly
+                impact flight safety by filtering out scattered or few clouds that don’t restrict visual navigation.
+                Broken or overcast layers do, however, restrict visual flying.
+            </p>
+
+            <h2>Purpose</h2>
+            <p>
+                The design and decisions behind this tool were focused on usability for aircrew members needing a
+                quick weather reference when planning flights. Additionally I wanted to begin learning the basics of
+                deploying a production website.
+            </p>
+
+            <h2>Future Improvements</h2>
+            <p>Planned features and additions:</p>
+            <ul>
+                <li>Ability to check multiple airports at once</li>
+                <li>Validation of airport codes and intelligent suggestions on better weather around the location</li>
+                <li>Searching for nearby alternate airports based on radius</li>
+                <li>Adding in form control</li>
+                <li>deploying and linking a database for CRUD operations</li>
+            </ul>
+        </div>
+        </body>
+    </div>
+</div>
 
 {% endblock %}
