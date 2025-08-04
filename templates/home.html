@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+    <h2>
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4">My Web Portfolio</h1>
+                <p class="lead text-muted"><br>This site is where I share personal projects, experiments, and reflections as I use technology to solve problems, build cool things, and learn along the way!<br></p>
+            </div>
+        </div>
+        <div class="container-md">
+            <div class="card-deck">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{url_for('static', filename='huey2.png')}}" class="card-img-top" alt="Huey Picture 1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{url_for('static', filename='headshot.png')}}" class="card-img-top" alt="headshot">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{url_for('static', filename='huey3.png')}}" class="card-img-top" alt="huuey picture 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h2>
+{% endblock %}

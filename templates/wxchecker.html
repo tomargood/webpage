@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block content %}
+    <div class="container text-center mt-5 w-50">
+        <div class="card">
+            <h5 class="card-header">Welcome to Weather Checker</h5>
+            <div class="card-body">
+                <div class="row">
+                    <h5 class="card-title mb-3">Please Enter desired Airport:</h5>
+                    <form action="/submit" method="POST">
+                        <input class="form-control" type="text" id="arpt" name="arpt"></input>
+                        <button type="submit" class="btn btn-primary mr-1 ml-1 mt-2 mb-1">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

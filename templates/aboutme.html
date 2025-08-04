@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block content %}
+    <div class="container-md pt-5">
+        <div class="card">
+
+            <div class="row">
+                <div class="col-4 p-4 align-self-center">
+                    <img src="{{url_for('static', filename='selfie.png')}}" class="card-img-top" alt="Picture">
+                </div>
+                <div class="col">
+                    <h5 class="card-title ms-3 mt-3">About Me</h5>
+                    <div class="card-body">
+                        <p class="card-text">Hi, I’m Anthony Goodwin. I’m currently the Chief of Standardization and Evaluation at the 36th Rescue Squadron, flying the UH-1N out of Fairchild AFB, WA. My Air Force journey began in 2012 when I joined the ROTC program at the University of Washington with one goal in mind: to become a pilot.</p>
+                        <p class="card-text">That dream became a reality in 2016 when I earned the opportunity to train in both fixed-wing and rotary-wing aircraft. In 2019, I became fully qualified in the UH-1N and began operational flying at Andrews AFB, MD.</p>
+                        <p class="card-text">While stationed at Andrews—and navigating the challenges of COVID—I was selected as an AFWERX Fellow, where I helped evaluate the viability of commercial eVTOLs for government missions. That experience taught me the value of questioning the status quo and using modern tools to solve long-standing Air Force problems.</p>
+                        <p class="card-text">Since then, I’ve been driven to bring every unit I’m part of into the digital age. Whether it’s automating data workflows, building simple Excel tools to streamline routine tasks, or improving mission planning processes, I focus on finding ways to make life easier for aircrew, so they can focus on what matters most: flying the mission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

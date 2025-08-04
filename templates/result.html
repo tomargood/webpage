@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="container text-center mt-5 w-50">
+    <div class="card">
+        <h5 class="card-header">Current {{arpt}} Weather </h5>
+        <div class="card-body">
+            <h5 class="mb-4 start-0">{{full_name}}</h5>
+            <table class="table">
+                <thead>
+                    <th>Cover Type</th>
+                    <th>Ceiling</th>
+                    <th>Visibility</th>
+                    <th>Wx Classification</th>
+                </thead>
+                <tbody>
+                    <tr class={{color}}>
+                        <td>{{cover}}</td>
+                        <td>{{cig}}</td>
+                        <td>{{vis}}</td>
+                        <td>{{type}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Observation valid as of: {{time}} UTC</p>
+            <a class="btn btn-primary" href="wxchecker">Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
