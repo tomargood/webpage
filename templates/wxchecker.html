@@ -1,5 +1,19 @@
 {% extends "index.html" %}
 {% block content %}
+<div class="modal" tabindex="-1" id="formModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Please enter valid airport</p>
+                <p>Must use 4 letter identifier</p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container text-center mt-5 w-50">
     <div class="card">
         <h5 class="card-header">Welcome to Weather Checker</h5>
@@ -82,5 +96,13 @@
         </body>
     </div>
 </div>
+<!-- Scripts -->
+{% if show_modal %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new bootstrap.Modal(document.getElementById('formModal')).show();
+  });
+</script>
+{% endif %}
 
 {% endblock %}

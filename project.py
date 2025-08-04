@@ -1,9 +1,11 @@
 import requests
 from datetime import datetime as dt, timezone
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
+
 
 
 app = Flask(__name__)
+app.secret_key = 'dev'
 
 @app.route("/")
 def index():
@@ -28,36 +30,41 @@ def dashboards():
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == "POST":
-        arpt = request.form['arpt']
-    return redirect(url_for('result', arpt=arpt))
+        if not request.form.get('arpt'): 
+            return render_template("wxchecker.html", show_modal=True) # Redirect back to the form page
+        else:
+            arpt = request.form['arpt']
+            return redirect(url_for('result', arpt=arpt))
 
 
 @app.route("/<arpt>")
 def result(arpt):
-    vis, cig, time, full_name, cover, type, color = lookup(arpt)
-    return render_template("result.html", full_name=full_name, arpt=arpt, vis=vis, cig=cig, time=time, cover=cover, type=type, color=color)
+    if lookup(arpt)==None:
+        return render_template("wxchecker.html", show_modal=True)
+    else:
+        vis, cig, time, full_name, cover, type, color = lookup(arpt)
+        return render_template("result.html", full_name=full_name, arpt=arpt, vis=vis, cig=cig, time=time, cover=cover, type=type, color=color)
 
-def get_local_valid_time(t):
-    d=str(dt.fromisoformat(t).replace(tzinfo=timezone.utc).astimezone())
-    date, time = d.split(" ")
-    time, conv = time.split("-")
-    return time
 
 def lookup(arpt):
-    response = requests.get(f"https://aviationweather.gov/api/data/metar?ids={arpt}&format=json")
-    my_dict = response.json()
-    vis = my_dict[0]["visib"]
-    if cigcalc(my_dict[0]["clouds"]) is not None:
-        cig = cigcalc(my_dict[0]["clouds"])['base']
-        cover = cigcalc(my_dict[0]["clouds"])["cover"]
-    else:
-        cig = my_dict[0]["clouds"][0]['base']
-        cover = my_dict[0]["clouds"][0]["cover"]
-    time = get_local_valid_time(my_dict[0]["reportTime"])
-    full_name=my_dict[0]["name"]
-    type = wxtype(cig,vis,cover)
-    color = wxtypecolor(type)
-    return vis, cig, time, full_name, cover, type, color
+    try:
+        response = requests.get(f"https://aviationweather.gov/api/data/metar?ids={arpt}&format=json")
+        my_dict = response.json()
+        vis = my_dict[0]["visib"]
+        if cigcalc(my_dict[0]["clouds"]) is not None:
+            cig = cigcalc(my_dict[0]["clouds"])['base']
+            cover = cigcalc(my_dict[0]["clouds"])["cover"]
+        else:
+            cig = my_dict[0]["clouds"][0]['base']
+            cover = my_dict[0]["clouds"][0]["cover"]
+        time = my_dict[0]["reportTime"]
+        full_name=my_dict[0]["name"]
+        type = wxtype(cig,vis,cover)
+        color = wxtypecolor(type)
+        return vis, cig, time, full_name, cover, type, color
+    except:
+        return None
+
 
 def wxtype(cig,vis,cover):
     if vis == "10+":
