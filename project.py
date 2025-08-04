@@ -27,6 +27,10 @@ def aboutme():
 def dashboards():
     return render_template("dashboards.html")
 
+@app.route("/portfolio")
+def portfolio():
+    return render_template("projects.html")
+
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == "POST":
@@ -100,4 +104,4 @@ def cigcalc(clouds):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
